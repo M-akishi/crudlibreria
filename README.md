@@ -8,18 +8,36 @@
 </p>
 
 
+
 # Gestor de Libreria web
 
 Sistema para desarrollar: La librería “El gran Poeta”, para la organización de sus sucursales, requiere de un sistema que permita visualizar un listado de productos en cada una de las bodegas que esta empresa posee.
 
+## Requerimientos
+
+- Node
+- Laravel
+- Composer
+- Laragon
 
 
+## Instalacion
 
-## instalacion
-
-clonar proyecto desde git y aplicar los siguientes comandos en vscode
+- clonar proyecto desde git
+- copiar .env.example a .env
+- instalar node y ajustar composer:
 
 ```bash
-  commands
+  composer install
+  npm install
 ```
-    
+- Migrar base de datos (mysql)
+
+```bash
+  php artisan migrate
+```
+## Arranque
+```bash
+  npm run dev
+  php artisan serve
+```
