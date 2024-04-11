@@ -71,5 +71,15 @@
     "Des_region": "Des_region",
     "Region": "Region",
     "Regions": "Regions",
-    "Región": "Región"
+    "Región": "Región",
+    "Ciudad": "Ciudad",
+    "Des_ciudad": "Des_ciudad",
+    "Ciudads": "Ciudades",
+    "Direccion": "Direccion",
+    "Cod_ciudad": "Cod_ciudad",
+    "Cod_region": "Cod_region",
+    "Sucursal": "Sucursal",
+    "Sucursals": "Sucursales",
+    "Region_id": "Region_id",
+    "Ciudad_id": "Ciudad_id"
 }
