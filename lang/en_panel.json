@@ -95,5 +95,13 @@
     "Tipolibros": "Tipolibros",
     "Autor": "Autor",
     "Des_autores": "Des_autores",
-    "Autors": "Autors"
+    "Autors": "Autors",
+    "Editorial": "Editorial",
+    "Des_editorial": "Des_editorial",
+    "Editorials": "Editorials",
+    "Numero de bodega": "Numero de bodega",
+    "Num_bodega": "Num_bodega",
+    "Cod_sucursal": "Cod_sucursal",
+    "Bodega": "Bodega",
+    "Bodegas": "Bodegas"
 }
