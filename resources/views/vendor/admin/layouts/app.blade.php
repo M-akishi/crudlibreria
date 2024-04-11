@@ -14,6 +14,7 @@
     @style('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css')
     @script('https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.2/dist/alpine.min.js')
     @script("/assets/admin/js/ckeditor.min.js")
+    @script('https://kit.fontawesome.com/25da4c92c0.js')
 
     {{--Styles--}}
     @livewireStyles
