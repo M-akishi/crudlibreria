@@ -4,11 +4,9 @@ namespace App\CRUD;
 
 use EasyPanel\Contracts\CRUDComponent;
 use EasyPanel\Parsers\Fields\Field;
-use App\Models\Sucursal;
-use App\Models\Region;
-use App\Models\Ciudad;
+use App\Models\Tipolibro;
 
-class SucursalComponent implements CRUDComponent
+class TipolibroComponent implements CRUDComponent
 {
     // Manage actions in crud
     public $create = true;
@@ -21,23 +19,19 @@ class SucursalComponent implements CRUDComponent
 
     public function getModel()
     {
-        return Sucursal::class;
+        return Tipolibro::class;
     }
 
     // which kind of data should be showed in list page
     public function fields()
     {
-        return [
-            'region.des_region' => Field::title('Región'),
-            'ciudad.des_ciudad' => Field::title('Ciudad'),
-            'direccion' => Field::title('Direccion'),
-        ];
+        return ['des_tipo' => Field::title('Tipo de libro')];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return ['direccion'];
+        return ['des_tipo'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -45,17 +39,9 @@ class SucursalComponent implements CRUDComponent
     // "password", "number", "email", "select", "date", "datetime", "time"
     public function inputs()
     {
-        $regions = Region::pluck('des_region', 'id');
-        $ciudad = Ciudad::pluck('des_ciudad', 'id');
-
-        $regions = ['' => ''] + $regions->toArray();
-        $ciudad = ['' => ''] + $ciudad->toArray();
-
         return [
-            'region_id' => ['select' => $regions],
-            'ciudad_id' => ['select' => $ciudad],
-            'direccion' => 'text',
-        ]; //fix this not push
+            'des_tipo' => 'text'
+        ];
     }
 
     // Validation in update and create actions
@@ -63,9 +49,7 @@ class SucursalComponent implements CRUDComponent
     public function validationRules()
     {
         return [
-            'direccion' => 'required',
-            'region_id' => 'required',
-            'ciudad_id' => 'required'
+            'des_tipo' => 'required|min:4'
         ];
     }
 

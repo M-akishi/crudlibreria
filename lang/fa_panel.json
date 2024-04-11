@@ -87,5 +87,19 @@
     "Sucursal": "Sucursal",
     "Sucursals": "Sucursals",
     "Region_id": "Region_id",
-    "Ciudad_id": "Ciudad_id"
+    "Ciudad_id": "Ciudad_id",
+    "Des_generos": "Des_generos",
+    "Genero": "Genero",
+    "Generos": "Generos",
+    "Género Literario": "Género Literario",
+    "Tipo De libro": "Tipo De libro",
+    "Des_tipo": "Des_tipo",
+    "TipoLibro": "TipoLibro",
+    "TipoLibros": "TipoLibros",
+    "Tipo de libro": "Tipo de libro",
+    "Tipolibro": "Tipolibro",
+    "Tipolibros": "Tipolibros",
+    "Autor": "Autor",
+    "Des_autores": "Des_autores",
+    "Autors": "Autors"
 }
