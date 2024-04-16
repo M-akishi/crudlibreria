@@ -36,6 +36,13 @@ Sistema para desarrollar: La librería “El gran Poeta”, para la organizació
 ```bash
   php artisan migrate
 ```
+
+- generar app-key
+
+```bash
+  php artisan key:generate
+```
+
 ## Arranque
 ```bash
   npm run dev
