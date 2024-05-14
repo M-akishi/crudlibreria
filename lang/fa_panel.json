@@ -109,5 +109,21 @@
     "Num_bodega": "Num_bodega",
     "Cod_sucursal": "Cod_sucursal",
     "Bodega": "Bodega",
-    "Bodegas": "Bodegas"
+    "Bodegas": "Bodegas",
+    "Titulo": "Titulo",
+    "Cantidad": "Cantidad",
+    "Descripcion": "Descripcion",
+    "Libro": "Libro",
+    "Libros": "Libros",
+    "Name": "Name",
+    "Email": "Email",
+    "Password": "Password",
+    "User": "User",
+    "Users": "Users",
+    "Informe": "Informe",
+    "Informes": "Informes",
+    "Enciclopedia": "Enciclopedia",
+    "Enciclopedias": "Enciclopedias",
+    "Revista": "Revista",
+    "Revistas": "Revistas"
 }
