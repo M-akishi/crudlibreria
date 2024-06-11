@@ -7,13 +7,15 @@ import Welcome from '@/Components/Welcome.vue';
     <AppLayout title="Dashboard">
         <template #header>
             <h2 class="text-xl text-gray-800  leading-tight">
-                PANEL DE CONTROL
+                SERVICIOS ACTIVOS
             </h2>
         </template>
 
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="">
+                <div class="">
+                    <a class="shadow m-3 btn btn-primary" href="/admin" role="button">ir a administracion de biblioteca</a>
+
                     <Welcome />
                 </div>
             </div>
