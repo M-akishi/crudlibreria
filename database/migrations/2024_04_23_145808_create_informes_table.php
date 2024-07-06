@@ -19,8 +19,8 @@ return new class extends Migration
             $table->foreignId('libros_id')->nullable()->constrained();
             $table->foreignId('revistas_id')->nullable()->constrained();
             $table->foreignId('enciclopedias_id')->nullable()->constrained();
-        });
-    }
+        });
+    }
      
     /**
      * Reverse the migrations.
