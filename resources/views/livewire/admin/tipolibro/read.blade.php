@@ -12,9 +12,9 @@
                     </ul>
 
                     <div class="row justify-content-between mt-4 mb-4">
-                        @if(getCrudConfig('Tipolibro')->create && hasPermission(getRouteName().'.tipolibro.create', 1, 0))
+                        @if(getCrudConfig('Tipolibro')->create && hasPermission(getRouteName().'.tipo de libro.create', 1, 0))
                         <div class="col-md-4 right-0">
-                            <a href="@route(getRouteName().'.tipolibro.create')" class="btn btn-success">{{ __('CreateTitle', ['name' => __('Tipolibro') ]) }}</a>
+                            <a href="@route(getRouteName().'.tipo de libro.create')" class="btn btn-success">{{ __('CreateTitle', ['name' => __('Tipolibro') ]) }}</a>
                         </div>
                         @endif
                         @if(getCrudConfig('Tipolibro')->searchable())

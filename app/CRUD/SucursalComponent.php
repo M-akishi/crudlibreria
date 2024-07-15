@@ -54,8 +54,8 @@ class SucursalComponent implements CRUDComponent
         return [
             'region_id' => ['select' => $regions],
             'ciudad_id' => ['select' => $ciudad],
-            'direccion' => 'text',
-        ]; //fix this not push
+            'direccion' => 'text'
+        ];
     }
 
     // Validation in update and create actions

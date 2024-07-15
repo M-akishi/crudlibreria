@@ -4,13 +4,13 @@
     @if(getCrudConfig('Tipolibro')->delete or getCrudConfig('Tipolibro')->update)
         <td>
 
-            @if(getCrudConfig('Tipolibro')->update && hasPermission(getRouteName().'.tipolibro.update', 1, 0, $tipolibro))
-                <a href="@route(getRouteName().'.tipolibro.update', $tipolibro->id)" class="btn text-primary mt-1">
+            @if(getCrudConfig('Tipolibro')->update && hasPermission(getRouteName().'.tipo de libro.update', 1, 0, $tipolibro))
+                <a href="@route(getRouteName().'.tipo de libro.update', $tipolibro->id)" class="btn text-primary mt-1">
                     <i class="icon-pencil"></i>
                 </a>
             @endif
 
-            @if(getCrudConfig('Tipolibro')->delete && hasPermission(getRouteName().'.tipolibro.delete', 1, 0, $tipolibro))
+            @if(getCrudConfig('Tipolibro')->delete && hasPermission(getRouteName().'.tipo de libro.delete', 1, 0, $tipolibro))
                 <button @click.prevent="modalIsOpen = true" class="btn text-danger mt-1">
                     <i class="icon-trash"></i>
                 </button>

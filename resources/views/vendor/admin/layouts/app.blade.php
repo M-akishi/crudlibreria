@@ -137,7 +137,7 @@
         <!-- End Container fluid  -->
 
         <!-- footer -->
-        <footer class="footer text-center text-muted">Adminmart Template, <a href="https://github.com/rezaamini-ir/laravel-easypanel">EasyPanel</a> Package.</footer>
+        <footer class="footer text-center text-muted">Bienvenido a tu control panel administrativo S.L.B</a> libreria el gran poeta © 2024 </footer>
         <!-- End footer -->
     </div>
 </div>

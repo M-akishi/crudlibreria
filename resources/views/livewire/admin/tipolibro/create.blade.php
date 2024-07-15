@@ -4,7 +4,7 @@
         <div class="px-2 mt-4">
             <ul class="breadcrumb mt-3 py-3 px-4 rounded">
                 <li class="breadcrumb-item"><a href="@route(getRouteName().'.home')" class="text-decoration-none">{{ __('Dashboard') }}</a></li>
-                <li class="breadcrumb-item"><a href="@route(getRouteName().'.tipolibro.read')" class="text-decoration-none">{{ __(\Illuminate\Support\Str::plural('Tipolibro')) }}</a></li>
+                <li class="breadcrumb-item"><a href="@route(getRouteName().'.tipo de libro.read')" class="text-decoration-none">{{ __(\Illuminate\Support\Str::plural('Tipolibro')) }}</a></li>
                 <li class="breadcrumb-item active">{{ __('Create') }}</li>
             </ul>
         </div>
@@ -24,7 +24,7 @@
 
         <div class="card-footer">
             <button type="submit" class="btn btn-info ml-4">{{ __('Create') }}</button>
-            <a href="@route(getRouteName().'.tipolibro.read')" class="btn btn-default float-left">{{ __('Cancel') }}</a>
+            <a href="@route(getRouteName().'.tipo de libro.read')" class="btn btn-default float-left">{{ __('Cancel') }}</a>
         </div>
     </form>
 </div>
