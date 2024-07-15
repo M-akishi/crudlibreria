@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Libro;
+namespace App\Http\Livewire\Admin\Libro_genero;
 
-use App\Models\Libro;
+use App\Models\libro_genero;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -17,12 +17,12 @@ class Read extends Component
 
     protected $queryString = ['search'];
 
-    protected $listeners = ['libroDeleted'];
+    protected $listeners = ['libro_generoDeleted'];
 
     public $sortType;
     public $sortColumn;
 
-    public function libroDeleted(){
+    public function libro_generoDeleted(){
         // Nothing ..
     }
 
@@ -36,9 +36,9 @@ class Read extends Component
 
     public function render()
     {
-        $data = Libro::query();
+        $data = Libro_genero::query();
 
-        $instance = getCrudConfig('libro');
+        $instance = getCrudConfig('libro_genero');
         if($instance->searchable()){
             $array = (array) $instance->searchable();
             $data->where(function (Builder $query) use ($array){
@@ -63,8 +63,8 @@ class Read extends Component
 
         $data = $data->paginate(config('easy_panel.pagination_count', 15));
 
-        return view('livewire.admin.libro.read', [
-            'libros' => $data
-        ])->layout('admin::layouts.app', ['title' => __(\Str::plural('Libro')) ]);
+        return view('livewire.admin.libro_genero.read', [
+            'libro_generos' => $data
+        ])->layout('admin::layouts.app', ['title' => __(\Str::plural('Libro_genero')) ]);
     }
 }

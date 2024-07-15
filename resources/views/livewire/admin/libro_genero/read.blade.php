@@ -2,22 +2,22 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header p-0">
-                <h3 class="card-title">{{ __('ListTitle', ['name' => __(\Illuminate\Support\Str::plural('Tipolibro')) ]) }}</h3>
+                <h3 class="card-title">{{ __('ListTitle', ['name' => __(\Illuminate\Support\Str::plural('Libro_genero')) ]) }}</h3>
 
                 <div class="px-2 mt-4">
 
                     <ul class="breadcrumb mt-3 py-3 px-4 rounded">
                         <li class="breadcrumb-item"><a href="@route(getRouteName().'.home')" class="text-decoration-none">{{ __('Dashboard') }}</a></li>
-                        <li class="breadcrumb-item active">{{ __(\Illuminate\Support\Str::plural('Tipolibro')) }}</li>
+                        <li class="breadcrumb-item active">{{ __(\Illuminate\Support\Str::plural('Libro_genero')) }}</li>
                     </ul>
 
                     <div class="row justify-content-between mt-4 mb-4">
-                        @if(getCrudConfig('Tipolibro')->create && hasPermission(getRouteName().'.tipo de libro.create', 1, 0))
+                        @if(getCrudConfig('Libro_genero')->create && hasPermission(getRouteName().'.genero libro.create', 1, 0))
                         <div class="col-md-4 right-0">
-                            <a href="@route(getRouteName().'.tipo de libro.create')" class="btn btn-success">{{ __('CreateTitle', ['name' => __('Tipolibro') ]) }}</a>
+                            <a href="@route(getRouteName().'.genero libro.create')" class="btn btn-success">{{ __('CreateTitle', ['name' => __('Libro_genero') ]) }}</a>
                         </div>
                         @endif
-                        @if(getCrudConfig('Tipolibro')->searchable())
+                        @if(getCrudConfig('Libro_genero')->searchable())
                         <div class="col-md-4">
                             <div class="input-group">
                                 <input type="text" class="form-control" @if(config('easy_panel.lazy_mode')) wire:model.lazy="search" @else wire:model="search" @endif placeholder="{{ __('Search') }}" value="{{ request('search') }}">
@@ -38,22 +38,23 @@
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
-                            <th scope="col" style='cursor: pointer' wire:click="sort('des_tipo')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'des_tipo') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'des_tipo') fa-sort-amount-up ml-2 @endif'></i> {{ __('Tipo de libro') }} </th>
+                            <th scope="col"> {{ __('libro') }} </th>
+                            <th scope="col"> {{ __('genero') }} </th>
                             
-                            @if(getCrudConfig('Tipolibro')->delete or getCrudConfig('Tipolibro')->update)
+                            @if(getCrudConfig('Libro_genero')->delete or getCrudConfig('Libro_genero')->update)
                                 <th scope="col">{{ __('Action') }}</th>
                             @endif
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($tipolibros as $tipolibro)
-                            @livewire('admin.tipolibro.single', [$tipolibro], key($tipolibro->id))
+                        @foreach($libro_generos as $libro_genero)
+                            @livewire('admin.libro_genero.single', [$libro_genero], key($libro_genero->id))
                         @endforeach
                     </tbody>
                 </table>
             </div>
             <div class="m-auto pt-3 pr-3">
-                {{ $tipolibros->appends(request()->query())->links() }}
+                {{ $libro_generos->appends(request()->query())->links() }}
             </div>
 
             <div wire:loading wire:target="nextPage,gotoPage,previousPage" class="loader-page"></div>

@@ -2,11 +2,13 @@
 
 namespace App\CRUD;
 
+use App\Models\Libros;
 use EasyPanel\Contracts\CRUDComponent;
 use EasyPanel\Parsers\Fields\Field;
-use App\Models\Enciclopedia;
+use App\Models\InventarioB;
+use App\Models\Bodega;
 
-class EnciclopediaComponent implements CRUDComponent
+class InventarioBComponent implements CRUDComponent
 {
     // Manage actions in crud
     public $create = true;
@@ -19,24 +21,23 @@ class EnciclopediaComponent implements CRUDComponent
 
     public function getModel()
     {
-        return Enciclopedia::class;
-    }
-
-    public function index()
-    {
-        return Enciclopedia::all();
+        return InventarioB::class;
     }
 
     // which kind of data should be showed in list page
     public function fields()
     {
-        return ['titulo', 'cantidad','descripcion'];
+        return [
+            'id_bodega' => Field::title('Numero de bodega'),
+            'id_libro' => Field::title('ISBN Del Libro'),
+            'cantidad' => Field::title('cantidad')
+        ];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return ['titulo', 'cantidad','descripcion'];
+        return ['id_libro', 'id_bodega'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -44,21 +45,27 @@ class EnciclopediaComponent implements CRUDComponent
     // "password", "number", "email", "select", "date", "datetime", "time"
     public function inputs()
     {
+        $libros = Libros::pluck('titulo','id');
+        $bodegas = Bodega::pluck('num_bodega','id');
+
+        $libros = ['' => ''] + $libros->toArray();
+        $bodegas = ['' => ''] + $bodegas->toArray();
+
         return [
-            'titulo' => 'text',
-            'cantidad' => 'number',
-            'descripcion' => 'text'
+            'id_libro' => ['select' => $libros],
+            'id_bodega' => ['select' => $bodegas],
+            'cantidad' => 'number'
         ];
     }
-
 
     // Validation in update and create actions
     // It uses Laravel validation system
     public function validationRules()
     {
         return [
-            'descripcion' => 'required|min:10|max:250',
-            'cantidad' => 'required|min:0'
+            'id_libro' => 'required',
+            'id_bodega' => 'required',
+            'cantidad' => 'required'
         ];
     }
 

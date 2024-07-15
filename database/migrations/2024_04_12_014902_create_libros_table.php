@@ -14,10 +14,20 @@ return new class extends Migration
         Schema::create('libros', function (Blueprint $table) {
             $table->id();
             $table->text('titulo');
-            $table->integer('cantidad');
-            $table->text('descripcion');
+            $table->unsignedBigInteger('tipo_libro');
+            $table->unsignedBigInteger('autor_code');
+            $table->text('des_libro');
+            $table->unsignedBigInteger('genero_code');
+            $table->unsignedBigInteger('editorial_code');
             $table->timestamps();
-        });//to-do
+
+            //foreign keys
+            $table->foreign('tipo_libro')->references('id')->on('tipolibros');
+            $table->foreign('autor_code')->references('id')->on('autors');
+            $table->foreign('editorial_code')->references('id')->on('editorials');
+            $table->foreign('genero_code')->references('id')->on('generos');
+
+        });
     }
 
     /**

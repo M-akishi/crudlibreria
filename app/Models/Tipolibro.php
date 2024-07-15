@@ -10,8 +10,4 @@ class Tipolibro extends Model
     use HasFactory;
     protected $fillable = ['des_tipo'];
 
-    public function informes()
-    {
-        return $this->hasMany(Informe::class, 'tipolibros_id');
-    }
 }

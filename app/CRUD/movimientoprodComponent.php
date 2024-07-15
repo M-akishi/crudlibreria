@@ -4,9 +4,12 @@ namespace App\CRUD;
 
 use EasyPanel\Contracts\CRUDComponent;
 use EasyPanel\Parsers\Fields\Field;
-use App\Models\Revista;
+use App\Models\movimientoprod;
+use App\Models\Bodega;
+use App\Models\Libros;
 
-class RevistaComponent implements CRUDComponent
+
+class movimientoprodComponent implements CRUDComponent
 {
     // Manage actions in crud
     public $create = true;
@@ -19,24 +22,25 @@ class RevistaComponent implements CRUDComponent
 
     public function getModel()
     {
-        return Revista::class;
-    }
-
-    public function index()
-    {
-        return Revista::all();
+        return movimientoprod::class;
     }
 
     // which kind of data should be showed in list page
     public function fields()
     {
-        return ['titulo', 'cantidad','descripcion'];
+        return [
+            'num_mov' => Field::title('Guia de despacho'),
+            'bod_origen' => Field::title('bodega origen'),
+            'bod_destino' => Field::title('bodega destino'),
+            'cod_libro' => Field::title('libro'),
+            'cantidad' => Field::title('cantidad')
+        ];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return ['titulo', 'cantidad','descripcion'];
+        return ['num_mov', 'bod_origen', 'bod_destino', 'cod_libro'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -44,10 +48,20 @@ class RevistaComponent implements CRUDComponent
     // "password", "number", "email", "select", "date", "datetime", "time"
     public function inputs()
     {
+        $origen = Bodega::pluck('num_bodega','id');
+        $destino = Bodega::pluck('num_bodega', 'id');
+        $libros = Libros::pluck('titulo','id');
+
+        $origen = ['' => ''] + $origen->toArray();
+        $destino = ['' => ''] + $destino->toArray();
+        $libros = ['' => ''] + $libros->toArray();
+
         return [
-            'titulo' => 'text',
-            'cantidad' => 'number',
-            'descripcion' => 'text'
+            'num_mov' => 'number',
+            'bod_origen' => ['select' => $origen],
+            'bod_destino' => ['select' => $destino],
+            'cod_libro' => ['select' => $libros],
+            'cantidad' => 'number'
         ];
     }
 
@@ -55,12 +69,8 @@ class RevistaComponent implements CRUDComponent
     // It uses Laravel validation system
     public function validationRules()
     {
-        return [
-            'descripcion' => 'required|min:10|max:250',
-            'cantidad' => 'required|min:0'
-        ];
+        return [];
     }
-
 
     // Where files will store for inputs
     public function storePaths()
