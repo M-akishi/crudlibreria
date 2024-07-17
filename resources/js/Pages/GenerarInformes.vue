@@ -39,7 +39,7 @@
 <script>
 export default {
     props: {
-        informes: Array 
+        informes: Array}, 
     methods: {
         volverAtras() {
             window.history.back();
