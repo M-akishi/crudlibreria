@@ -10,14 +10,9 @@ class Create extends Component
 {
     use WithFileUploads;
 
-    public $id_libro;
-    public $id_bodega;
-    public $cantidad;
     
     protected $rules = [
-        'id_libro' => 'required',
-        'id_bodega' => 'required',
-        'cantidad' => 'required',        
+        
     ];
 
     public function updated($input)
@@ -33,9 +28,6 @@ class Create extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('InventarioB') ])]);
         
         InventarioB::create([
-            'id_libro' => $this->id_libro,
-            'id_bodega' => $this->id_bodega,
-            'cantidad' => $this->cantidad,
             'user_id' => auth()->id(),
         ]);
 

@@ -2,11 +2,9 @@
 
 namespace App\CRUD;
 
-use App\Models\Libros;
 use EasyPanel\Contracts\CRUDComponent;
 use EasyPanel\Parsers\Fields\Field;
 use App\Models\InventarioB;
-use App\Models\Bodega;
 
 class InventarioBComponent implements CRUDComponent
 {
@@ -27,17 +25,13 @@ class InventarioBComponent implements CRUDComponent
     // which kind of data should be showed in list page
     public function fields()
     {
-        return [
-            'id_bodega' => Field::title('Numero de bodega'),
-            'id_libro' => Field::title('ISBN Del Libro'),
-            'cantidad' => Field::title('cantidad')
-        ];
+        return [];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return ['id_libro', 'id_bodega'];
+        return [];
     }
 
     // Write every fields in your db which you want to have a input
@@ -45,28 +39,14 @@ class InventarioBComponent implements CRUDComponent
     // "password", "number", "email", "select", "date", "datetime", "time"
     public function inputs()
     {
-        $libros = Libros::pluck('titulo','id');
-        $bodegas = Bodega::pluck('num_bodega','id');
-
-        $libros = ['' => ''] + $libros->toArray();
-        $bodegas = ['' => ''] + $bodegas->toArray();
-
-        return [
-            'id_libro' => ['select' => $libros],
-            'id_bodega' => ['select' => $bodegas],
-            'cantidad' => 'number'
-        ];
+        return [];
     }
 
     // Validation in update and create actions
     // It uses Laravel validation system
     public function validationRules()
     {
-        return [
-            'id_libro' => 'required',
-            'id_bodega' => 'required',
-            'cantidad' => 'required'
-        ];
+        return [];
     }
 
     // Where files will store for inputs

@@ -12,9 +12,9 @@
                     </ul>
 
                     <div class="row justify-content-between mt-4 mb-4">
-                        @if(getCrudConfig('InventarioB')->create && hasPermission(getRouteName().'.inventariobodega.create', 1, 0))
+                        @if(getCrudConfig('InventarioB')->create && hasPermission(getRouteName().'.inventariob.create', 1, 0))
                         <div class="col-md-4 right-0">
-                            <a href="@route(getRouteName().'.inventariobodega.create')" class="btn btn-success">{{ __('CreateTitle', ['name' => __('InventarioB') ]) }}</a>
+                            <a href="@route(getRouteName().'.inventariob.create')" class="btn btn-success">{{ __('CreateTitle', ['name' => __('InventarioB') ]) }}</a>
                         </div>
                         @endif
                         @if(getCrudConfig('InventarioB')->searchable())
@@ -38,9 +38,6 @@
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
-                            <th scope="col" style='cursor: pointer' wire:click="sort('id_bodega')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'id_bodega') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'id_bodega') fa-sort-amount-up ml-2 @endif'></i> {{ __('Numero de bodega') }} </th>
-                            <th scope="col" style='cursor: pointer' wire:click="sort('id_libro')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'id_libro') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'id_libro') fa-sort-amount-up ml-2 @endif'></i> {{ __('ISBN Del Libro') }} </th>
-                            <th scope="col" style='cursor: pointer' wire:click="sort('cantidad')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'cantidad') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'cantidad') fa-sort-amount-up ml-2 @endif'></i> {{ __('cantidad') }} </th>
                             
                             @if(getCrudConfig('InventarioB')->delete or getCrudConfig('InventarioB')->update)
                                 <th scope="col">{{ __('Action') }}</th>

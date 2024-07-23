@@ -1,18 +1,15 @@
 <tr x-data="{ modalIsOpen : false }">
-    <td class="">{{ $inventariob->id_bodega }}</td>
-    <td class="">{{ $inventariob->id_libro }}</td>
-    <td class="">{{ $inventariob->cantidad }}</td>
     
     @if(getCrudConfig('InventarioB')->delete or getCrudConfig('InventarioB')->update)
         <td>
 
-            @if(getCrudConfig('InventarioB')->update && hasPermission(getRouteName().'.inventariobodega.update', 1, 0, $inventariob))
-                <a href="@route(getRouteName().'.inventariobodega.update', $inventariob->id)" class="btn text-primary mt-1">
+            @if(getCrudConfig('InventarioB')->update && hasPermission(getRouteName().'.inventariob.update', 1, 0, $inventariob))
+                <a href="@route(getRouteName().'.inventariob.update', $inventariob->id)" class="btn text-primary mt-1">
                     <i class="icon-pencil"></i>
                 </a>
             @endif
 
-            @if(getCrudConfig('InventarioB')->delete && hasPermission(getRouteName().'.inventariobodega.delete', 1, 0, $inventariob))
+            @if(getCrudConfig('InventarioB')->delete && hasPermission(getRouteName().'.inventariob.delete', 1, 0, $inventariob))
                 <button @click.prevent="modalIsOpen = true" class="btn text-danger mt-1">
                     <i class="icon-trash"></i>
                 </button>

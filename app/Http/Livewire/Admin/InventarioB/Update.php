@@ -12,21 +12,14 @@ class Update extends Component
 
     public $inventariob;
 
-    public $id_libro;
-    public $id_bodega;
-    public $cantidad;
     
     protected $rules = [
-        'id_libro' => 'required',
-        'id_bodega' => 'required',
-        'cantidad' => 'required',        
+        
     ];
 
     public function mount(InventarioB $InventarioB){
         $this->inventariob = $InventarioB;
-        $this->id_libro = $this->inventariob->id_libro;
-        $this->id_bodega = $this->inventariob->id_bodega;
-        $this->cantidad = $this->inventariob->cantidad;        
+        
     }
 
     public function updated($input)
@@ -42,9 +35,6 @@ class Update extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('InventarioB') ]) ]);
         
         $this->inventariob->update([
-            'id_libro' => $this->id_libro,
-            'id_bodega' => $this->id_bodega,
-            'cantidad' => $this->cantidad,
             'user_id' => auth()->id(),
         ]);
     }
